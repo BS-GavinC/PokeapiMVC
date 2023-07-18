@@ -1,0 +1,20 @@
+﻿@using DAL.Entities
+@model List<DAL.Entities.PokeResult>
+
+<h1>Mes Pokemons</h1>
+
+<ol>
+    
+    @foreach (PokeResult pokemon in Model)
+    {
+        // htpp://www.tata/toto/titi
+        //string[] datas = pokemon.url.Split("/")
+                         
+        <li>
+            <a asp-controller="Pokemon" asp-action="Details" asp-route-id="@(pokemon.url.Split("/")[pokemon.url.Split("/").Length - 2])" >
+                <button class="btn btn-primary">@pokemon.name.Replace("-", " ")</button>
+            </a>
+            
+        </li>
+    }
+</ol>

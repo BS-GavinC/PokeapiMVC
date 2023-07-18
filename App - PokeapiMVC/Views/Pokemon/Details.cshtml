@@ -1,0 +1,41 @@
+﻿@using DAL.Entities
+@model DAL.Entities.Pokemon
+
+<h1>@Model.id - @Model.name.Replace("-", " ")</h1>
+
+<p>Taille : @((double)Model.height / 10) M</p>
+<p>Poids : @((double)Model.weight / 10) Kg</p>
+
+<h3>Types</h3>
+<ul>
+    @foreach (TypeData datas in @Model.types)
+    {
+        <li>@(datas.type.name.Replace("-", " "))</li>
+    }
+</ul>
+
+<img src="@Model.sprites.front_default"/>
+
+<h3>Stats</h3>
+<ul>
+    @foreach (StatData datas in @Model.stats)
+    {
+        <li>@datas.stat.name.Replace("-", " ") - @datas.base_stat</li>
+    }
+</ul>
+
+<h3>Moves</h3>
+<ul>
+    @foreach (MoveData datas in @Model.moves)
+    {
+        <li>@datas.move.name.Replace("-", " ")</li>
+    }
+</ul>
+
+<h3>Abilities</h3>
+<ul>
+    @foreach (AbilityData datas in @Model.abilities)
+    {
+        <li>@datas.ability.name.Replace("-", " ")</li>
+    }
+</ul>
